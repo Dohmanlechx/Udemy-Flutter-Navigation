@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_guide/screens/category_meals_screen.dart';
 
 import './screens/categories_screen.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  static const routeName = "/";
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -27,7 +30,11 @@ class MyApp extends StatelessWidget {
               fontFamily: "RobotoCondensed",
             )),
       ),
-      home: CategoriesScreen(),
+      initialRoute: MyApp.routeName,
+      routes: {
+        MyApp.routeName: (ctx) => CategoriesScreen(),
+        CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),
+      },
     );
   }
 }
