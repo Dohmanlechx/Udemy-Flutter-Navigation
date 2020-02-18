@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_complete_guide/data/dummy_data.dart';
 
-import 'items/category_item.dart';
+import 'widgets/category_item.dart';
 
 class CategoriesScreen extends StatelessWidget {
   @override
