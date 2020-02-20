@@ -6,10 +6,18 @@ enum Complexity {
   Hard,
 }
 
+extension ParseComplexityToString on Complexity {
+  toText() => toString().split(".").last;
+}
+
 enum Affordability {
   Affordable,
   Pricey,
   Luxurious,
+}
+
+extension ParseAffordabilityToString on Affordability {
+  toText() => toString().split(".").last;
 }
 
 class Meal {

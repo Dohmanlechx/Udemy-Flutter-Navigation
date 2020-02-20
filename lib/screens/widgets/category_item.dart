@@ -9,13 +9,7 @@ class CategoryItem extends StatelessWidget {
   const CategoryItem(this.id, this.title, this.color);
 
   void _selectCategory(BuildContext ctx) {
-    Navigator.of(ctx).pushNamed(
-      CategoryMealsScreen.routeName,
-      arguments: {
-        "id": id,
-        "title": title,
-      },
-    );
+    Navigator.of(ctx).pushNamed(CategoryMealsScreen.routeName, arguments: {"id": id, "title": title});
   }
 
   @override
@@ -51,7 +45,7 @@ class CategoryContainer extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            color.withOpacity(0.7),
+            color.withOpacity(0.5),
             color,
           ],
           begin: Alignment.topLeft,

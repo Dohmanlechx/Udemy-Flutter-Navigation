@@ -27,15 +27,55 @@ class MealItem extends StatelessWidget {
                     topLeft: const Radius.circular(15),
                     topRight: const Radius.circular(15),
                   ),
-                  child: Image.network(
-                    meal.imageUrl,
-                    width: double.infinity,
-                    height: 250,
-                    fit: BoxFit.cover,
-                  ),
+                  child: Image.network(meal.imageUrl, width: double.infinity, height: 250, fit: BoxFit.cover),
                 ),
+                Positioned(
+                  bottom: 20,
+                  right: 10,
+                  child: Container(
+                    width: 300,
+                    padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0),
+                    color: Colors.black54,
+                    child: Text(
+                      meal.title,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                      softWrap: true,
+                      overflow: TextOverflow.fade,
+                    ),
+                  ),
+                )
               ],
-            )
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      const Icon(Icons.schedule),
+                      const SizedBox(width: 6),
+                      Text("${meal.duration} min"),
+                    ],
+                  ),
+                  Row(
+                    children: <Widget>[
+                      const Icon(Icons.work),
+                      const SizedBox(width: 6),
+                      Text(meal.complexity.toText()),
+                    ],
+                  ),
+                  Row(
+                    children: <Widget>[
+                      const Icon(Icons.attach_money),
+                      const SizedBox(width: 6),
+                      Text(meal.affordability.toText()),
+                    ],
+                  )
+                ],
+              ),
+            ),
           ],
         ),
       ),
