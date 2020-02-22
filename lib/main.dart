@@ -35,15 +35,13 @@ class MyApp extends StatelessWidget {
       initialRoute: MyApp.routeName,
       onGenerateRoute: (RouteSettings settings) {
         switch (settings.name) {
-          case MyApp.routeName:
-            return MaterialPageRoute(builder: (_) => CategoriesScreen(), settings: settings);
           case CategoryMealsScreen.routeName:
             return MaterialPageRoute(builder: (_) => CategoryMealsScreen(), settings: settings);
           case MealDetailsScreen.routeName:
             return CupertinoPageRoute(builder: (_) => MealDetailsScreen(), settings: settings);
-          default:
-            return null;
         }
+
+        return MaterialPageRoute(builder: (_) => CategoriesScreen());
       },
     );
   }
