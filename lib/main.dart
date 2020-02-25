@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_complete_guide/screens/category_meals_screen.dart';
 import 'package:flutter_complete_guide/screens/meal_details_screen.dart';
+import 'package:flutter_complete_guide/screens/tabs_screen.dart';
 
 import './screens/categories_screen.dart';
 
@@ -33,16 +34,23 @@ class MyApp extends StatelessWidget {
             )),
       ),
       initialRoute: MyApp.routeName,
-      onGenerateRoute: (RouteSettings settings) {
-        switch (settings.name) {
-          case CategoryMealsScreen.routeName:
-            return MaterialPageRoute(builder: (_) => CategoryMealsScreen(), settings: settings);
-          case MealDetailsScreen.routeName:
-            return CupertinoPageRoute(builder: (_) => MealDetailsScreen(), settings: settings);
-        }
-
-        return MaterialPageRoute(builder: (_) => CategoriesScreen());
+      routes: {
+        routeName: (ctx) => TabsScreen(),
+        CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),
+        MealDetailsScreen.routeName: (ctx) => MealDetailsScreen(),
       },
+//      onGenerateRoute: (RouteSettings settings) {
+//        switch (settings.name) {
+//          case MyApp.routeName:
+//            return ((context) => TabsScreen();
+//          case CategoryMealsScreen.routeName:
+//            return MaterialPageRoute(builder: (_) => CategoryMealsScreen(), settings: settings);
+//          case MealDetailsScreen.routeName:
+//            return CupertinoPageRoute(builder: (_) => MealDetailsScreen(), settings: settings);
+//        }
+//
+//        return MaterialPageRoute(builder: (_) => CategoriesScreen());
+//      },
     );
   }
 }
