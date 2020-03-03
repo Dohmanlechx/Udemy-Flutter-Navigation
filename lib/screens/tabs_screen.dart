@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_complete_guide/screens/categories_screen.dart';
 import 'package:flutter_complete_guide/screens/favorites_screen.dart';
+import 'package:flutter_complete_guide/screens/widgets/main_drawer.dart';
 
 class TabsScreen extends StatefulWidget {
   @override
@@ -8,9 +9,15 @@ class TabsScreen extends StatefulWidget {
 }
 
 class _TabsScreenState extends State<TabsScreen> {
-  final _pages = const [
-    CategoriesScreen(),
-    FavoritesScreen(),
+  final List<Map<String, Object>> _pages = const [
+    {
+      "page": CategoriesScreen(),
+      "title": "Categories",
+    },
+    {
+      "page": FavoritesScreen(),
+      "title": "Favorites",
+    },
   ];
 
   var _selectedPageIndex = 0;
@@ -24,8 +31,9 @@ class _TabsScreenState extends State<TabsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Meals")),
-      body: _pages[_selectedPageIndex],
+      appBar: AppBar(title: Text(_pages[_selectedPageIndex]["title"])),
+      body: _pages[_selectedPageIndex]["page"],
+      drawer: MainDrawer(),
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
         backgroundColor: Theme.of(context).primaryColor,
