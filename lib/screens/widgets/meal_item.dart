@@ -4,11 +4,19 @@ import 'package:flutter_complete_guide/screens/meal_details_screen.dart';
 
 class MealItem extends StatelessWidget {
   final Meal meal;
+  final Function removeItem;
 
-  const MealItem({@required this.meal});
+  const MealItem({
+    @required this.meal,
+    @required this.removeItem,
+  });
 
   void _selectMeal(BuildContext ctx) {
-    Navigator.of(ctx).pushNamed(MealDetailsScreen.routeName, arguments: meal.id);
+    Navigator.of(ctx).pushNamed(MealDetailsScreen.routeName, arguments: meal.id).then((result) {
+      if (result != null) {
+        removeItem(result);
+      }
+    });
   }
 
   @override
